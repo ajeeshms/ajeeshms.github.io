@@ -1,0 +1,14 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</title>
+    <link href="../css/foundation/normalize.min.css" rel="stylesheet" />
+    <link href="../css/foundation/foundation.min.css" rel="stylesheet" />
+    <link href="../css/master.min.css" rel="stylesheet" />
+</head>
+<body id="article-page">
+    ### Hello World
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/master.min.js"></script>
+</body>
+</html>
