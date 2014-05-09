@@ -1,8 +1,5 @@
 ﻿$(function () {
-    var bdy = $(document.body);
-    var home_page = $('#home-page');
-
-    //Homepage Background Slideshow
+    //Preparing homepage bg slideshow images
     if (home_page.length > 0) {
         var background_urls = ['/img/bg/bg1.jpg', '/img/bg/bg2.jpg', '/img/bg/bg3.jpg', '/img/bg/bg4.jpg'];
         $.each(background_urls, function (i, url) {
@@ -16,12 +13,19 @@
                 home_page.append(panel);
             });
         });
-        setInterval(function () {
-            var current = home_page.find('.bg-panel.current');
-            var next = current.next('.bg-panel');
-            next = next.length == 0 ? $('.bg-panel:first') : next;
-            current.removeClass('current');
-            next.addClass('current');
-        }, 5000);
     }
 });
+
+var bdy = $(document.body);
+var home_page = $('#home-page');
+
+// Homepage bg slideshow timer
+if (home_page.length > 0) {
+    setInterval(function () {
+        var current = $(document.body).find('.bg-panel.current');
+        var next = current.next('.bg-panel');
+        next = next.length == 0 ? $('.bg-panel:first') : next;
+        current.removeClass('current');
+        next.addClass('current');
+    }, 5000);
+}
