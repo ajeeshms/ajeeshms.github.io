@@ -1,12 +1,22 @@
----
-layout: page
-title: Latest Posts
-description: "A simple and clean responsive Jekyll theme for words and photos."
-tags: [Jekyll, theme, themes, responsive, blog, minimalism]
----
+<html>
+<head>
+<title>Ajeesh M Sudhakaran: Developer</title>
+    <link href="css/foundation/normalize.min.css" rel="stylesheet" />
+    <link href="css/foundation/foundation.min.css" rel="stylesheet" />
+    <link href="css/master.css" rel="stylesheet" />
+</head>
+<body id="home-page">
+    <h1 style="display: none;">Ajeesh M Sudhakaran</h1>
+    <div id="hero">
+        <div id="logo">
 
-<ul class="post-list">
-{% for post in site.posts limit:10 %} 
-  <li><article><a href="{{ site.url }}{{ post.url }}">{{ post.title }} <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span></a></article></li>
-{% endfor %}
-</ul>
+        </div>
+        <div id="name">
+            <h1>ajeesh<b>ms</b></h1>
+        </div>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/master.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+</body>
+</html>
