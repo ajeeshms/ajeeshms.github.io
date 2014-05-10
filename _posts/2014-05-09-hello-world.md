@@ -7,17 +7,31 @@ comments: true
 share: true
 ---
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</title>
-    <link href="../css/foundation/normalize.min.css" rel="stylesheet" />
-    <link href="../css/foundation/foundation.min.css" rel="stylesheet" />
-    <link href="../css/master.min.css" rel="stylesheet" />
-</head>
-<body id="article-page">
-    <h1>Hellow World</h1>
-    <script src="../js/jquery-2.1.1.min.js"></script>
-    <script src="../js/master.min.js"></script>
-</body>
-</html>
+Heading
+ =======
+
+ Sub-heading
+ -----------
+ 
+ Paragraphs are separated
+ by a blank line.
+ 
+ Text attributes *italic*,
+ **bold**, `monospace`.
+ 
+ A [link](http://example.com).
+ 
+ Shopping list:
+ 
+   * apples
+   * oranges
+   * pears
+ 
+ Numbered list:
+ 
+   1. apples
+   2. oranges
+   3. pears
+ 
+ The rain---not the reign---in
+ Spain.
