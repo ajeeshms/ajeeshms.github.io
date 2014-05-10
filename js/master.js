@@ -1,7 +1,7 @@
 ﻿$(function () {
     //Preparing homepage bg slideshow images
     if (home_page.length > 0) {
-        var background_urls = ['/img/bg/bg1.jpg', '/img/bg/bg2.jpg', '/img/bg/bg3.jpg', '/img/bg/bg4.jpg'];
+        var background_urls = ['/img/bg/bg1.jpg', '/img/bg/bg2.jpg', '/img/bg/bg3.jpg', '/img/bg/bg4.jpg', '/img/bg/bg5.jpg'];
         $.each(background_urls, function (i, url) {
             var img = $('<img src="' + url + '"/>');
             img.ready(function () {
