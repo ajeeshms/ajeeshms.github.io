@@ -1,7 +1,7 @@
 title:            Ajeesh M Sudhakaran
 description:      Personal Website of Ajeesh M Sudhakaran
 logo:             site-logo.png
-disqus_shortname: 
+disqus_shortname: ajeeshms
 search:           false
 # Change url to your domain. Leave localhost server or blank when working locally.
 url:              http://ajeeshms.github.io
