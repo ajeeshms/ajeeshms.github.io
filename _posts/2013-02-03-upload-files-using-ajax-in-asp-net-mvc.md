@@ -2,7 +2,6 @@
 layout: post
 title: Upload files using AJAX in ASP.Net MVC
 description: "Simple tutorial for Upload files using AJAX in ASP.Net MVC with HTML5"
-modified: 2013-05-31
 category: articles
 tags: [sample post]
 image:
