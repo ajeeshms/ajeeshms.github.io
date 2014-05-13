@@ -58,7 +58,7 @@ window.onload = function () {
 
 Posted FormData is available in controller under Request.Form property as key/value pair. Request.Files property contains a collection of HttpFileCollection. Iterate through it to get each files uploaded.
 
-{% highlight c# %}
+{% highlight javascript %}
 [HttpPost]
 public JsonResult Upload()
 {
@@ -109,6 +109,7 @@ window.onload = function () {
 
 #### Controller
 
+{% highlight c# %}
 [HttpPost]
 public JsonResult Upload()
 {
@@ -125,5 +126,6 @@ public JsonResult Upload()
     fileStream.Dispose();
     return Json("File uploaded");
 }
+{% endhighlight %}
 
 Thats it. We're done
