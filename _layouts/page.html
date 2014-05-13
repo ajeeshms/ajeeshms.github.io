@@ -1,0 +1,18 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+    <link href="{{ site.url }}/css/foundation/normalize.min.css" rel="stylesheet" />
+    <link href="{{ site.url }}/css/foundation/foundation.min.css" rel="stylesheet" />
+    <link href="{{ site.url }}/css/master.min.css" rel="stylesheet" />
+</head>
+<body id="page">
+    {% include header.html %}
+    <div class="row">
+        <h1>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</h1>
+        {{content}}
+    </div>
+
+    {% include scripts.html %}
+</body>
+</html>
