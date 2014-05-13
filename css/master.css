@@ -52,9 +52,17 @@
 #page header {
     border-bottom: 2px dashed #bbb;
     padding-bottom: 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 #page article {
     margin-top: 20px;
+    position: relative;
+    top: 80px;
+    left: 0;
+    right: 0;
 }
 #page #logo {
     width: 220px;
