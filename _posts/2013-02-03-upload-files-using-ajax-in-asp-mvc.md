@@ -1,15 +1,17 @@
 ﻿---
 layout: post
-title: Upload files using AJAX in ASP.Net MVC
-identifier: article-1
-description: "Simple tutorial for Upload files using AJAX in ASP.Net MVC with HTML5"
+title: Sample Post
+description: "Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more."
+modified: 2013-05-31
 category: articles
-tags: [ASP.Net-MVC, Ajax]
+tags: [sample post]
+image:
+  feature: so-simple-sample-image-1.jpg
+  credit: Michael Rose
+  creditlink: http://mademistakes.com
 comments: true
 share: true
 ---
-
-
 
 In one of my recent projects, I had a requirement to uploads files with AJAX. There are several jQuery plugins available, but I really don't wanna use any of them. After little research, I found a solution. It is very simple and can do it even without jQuery.
 The HTML Markup
