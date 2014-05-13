@@ -1,23 +1,23 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-{% include head.html %}
+    {% include head.html %}
 </head>
-    <body id="page">
-        {% include header.html %}
-        <article class="row">
-            <div id="article-meta" class="medium-2 column">
-                <a id="author-img"></a>
-                <span id="author-name" class="medium-12 column text-center">BY AJEESH M S</span>
-                <span class="medium-12 column text-center"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
-                {% if site.disqus_shortname and page.comments %}<span class="medium-12 column text-center"><i class="fa fa-comment"></i> COMMENT(S)</span>{% endif %}
-            </div>
-            <div id="article-content" class="medium-10 column">
-                <h1>{{ page.title }}</h1>
-                {{ content }}
-            </div>
-        </article>
+<body id="page">
+    {% include header.html %}
+    <article class="row">
+        <div id="article-meta" class="medium-2 column">
+            <a id="author-img"></a>
+            <span id="author-name" class="medium-12 column text-center">BY AJEESH M S</span>
+            <span class="medium-12 column text-center"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
+            {% if site.disqus_shortname and page.comments %}<span class="medium-12 column text-center"><i class="fa fa-comment"></i> COMMENT(S)</span>{% endif %}
+        </div>
+        <div id="article-content" class="medium-10 column">
+            <h1>{{ page.title }}</h1>
+            {{ content }}
+        </div>
+    </article>
 
-        {% include scripts.html %}
-    </body>
+    {% include scripts.html %}
+</body>
 </html>
