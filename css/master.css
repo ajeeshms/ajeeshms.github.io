@@ -90,6 +90,14 @@
 }
 #article-content {
 }
+
+.post-list {
+    list-style: none;
+    margin-left: 0;
+}
+    .post-list time {
+        color: #aaa;
+    }
     
 /*---Foundation Overrides---*/
 .row {
