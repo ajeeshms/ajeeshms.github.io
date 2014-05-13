@@ -58,7 +58,7 @@
     right: 0;
     z-index: 10;
 }
-#page article {
+#page article, #page #content {
     margin-top: 20px;
     position: relative;
     top: 80px;
