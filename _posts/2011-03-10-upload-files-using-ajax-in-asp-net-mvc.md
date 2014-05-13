@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Upload files using AJAX in ASP.Net MVC
-description: "Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more."
+description: "Simple tutorial for Upload files using AJAX in ASP.Net MVC with HTML5"
 modified: 2013-05-31
 category: articles
 tags: [sample post]
@@ -13,84 +13,122 @@ comments: true
 share: true
 ---
 
-Below is just about everything you'll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.
+In one of my recent projects, I had a requirement to uploads files with AJAX. There are several jQuery plugins available, but I really don't wanna use any of them. After little research, I found a solution. It is very simple and can do it even without jQuery.
+The HTML Markup
 
-# Heading 1
+### First, setup a simple form with a fileinput and submit button.
 
-## Heading 2
 
-### Heading 3
+{% highlight html %}
+{% raw %}
+<form id="uploader">
+    <input id="fileInput" type="file" multiple>
+    <input type="submit" value="Upload file" />
+</form>
+{% endraw %}
+{% endhighlight %}
 
-#### Heading 4
+### Method 1 - Using JavaScript's FormData object
 
-##### Heading 5
+The best method recommended if you don't target legacy browsers and IE9. We will be sending data to server using JavaScript's new FormData object. This object is new in XMLHttpRequest Level 2 and not supported in all browsers. FormData object represent form fields and values as key/value pairs. Just append files to FormData object and send with XMLHttpRequest. Here goes our script.
 
-###### Heading 6
+#### The JavaScript
 
-### Body text
-
-Lorem ipsum dolor sit amet, test link adipiscing elit. **This is strong**. Nullam dignissim convallis est. Quisque aliquam.
-
-![Smithsonian Image]({{ site.url }}/images/3953273590_704e3899d5_m.jpg)
-{: .pull-right}
-
-*This is emphasized*. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times <cite>(That’s a citation)</cite>. <u>Underline</u>. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
-
-HTML and <abbr title="cascading stylesheets">CSS<abbr> are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.
-
-### Blockquotes
-
-> Lorem ipsum dolor sit amet, test link adipiscing elit. Nullam dignissim convallis est. Quisque aliquam.
-
-## List Types
-
-### Ordered Lists
-
-1. Item one
-   1. sub item one
-   2. sub item two
-   3. sub item three
-2. Item two
-
-### Unordered Lists
-
-* Item one
-* Item two
-* Item three
-
-## Tables
-
-| Header1 | Header2 | Header3 |
-|:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|----
-| cell1   | cell2   | cell3   |
-| cell4   | cell5   | cell6   |
-|=====
-| Foot1   | Foot2   | Foot3
-{: rules="groups"}
-
-## Code Snippets
-
-Syntax highlighting via Pygments
-
-{% highlight css %}
-#container {
-  float: left;
-  margin: 0 -240px 0 0;
-  width: 100%;
+{% highlight javascript %}
+window.onload = function () {
+    document.getElementById('uploader').onsubmit = function () {
+        var formdata = new FormData(); //FormData object
+        var fileInput = document.getElementById('fileInput');
+        //Iterating through each files selected in fileInput
+        for (i = 0; i < fileInput.files.length; i++) {
+            //Appending each file to FormData object
+            formdata.append(fileInput.files[i].name, fileInput.files[i]);
+        }
+        //Creating an XMLHttpRequest and sending
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Home/Upload');
+        xhr.send(formdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);
+            }
+        }
+        return false;
+    }
 }
 {% endhighlight %}
 
-Non Pygments code example
 
-    <div id="awesome">
-        <p>This is great isn't it?</p>
-    </div>
+#### Controller
 
-## Buttons
+Posted FormData is available in controller under Request.Form property as key/value pair. Request.Files property contains a collection of HttpFileCollection. Iterate through it to get each files uploaded.
 
-Make any link standout more when applying the `.btn` class.
+{% highlight c# %}
+[HttpPost]
+public JsonResult Upload()
+{
+    for (int i = 0; i < Request.Files.Count; i++)
+    {
+        HttpPostedFileBase file = Request.Files[i]; //Uploaded file
+        //Use the following properties to get file's name, size and MIMEType
+        int fileSize = file.ContentLength;
+        string fileName = file.FileName;
+        string mimeType = file.ContentType;
+        System.IO.Stream fileContent = file.InputStream;
+        //To save file, use SaveAs method
+        file.SaveAs(Server.MapPath("~/")+ fileName ); //File will be saved in application root
+    }
+    return Json("Uploaded " + Request.Files.Count + " files");
+}
+{% endhighlight %}
 
-<div markdown="0"><a href="#" class="btn">This is a button</a></div>
+### Method 2 - For legacy browsers
+
+This approach will work on almost all browsers but, you can't upload multiple files, and file information have to send separately. In this method file is send directly in XMLHttpRequest, and file information is send along with HTTP Headers.
+
+#### The JavaScript
+
+{% highlight javascript %}
+window.onload = function () {
+    document.getElementById('uploader').onsubmit = function () {
+        var fileInput = document.getElementById('fileInput');
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/Home/Upload');
+        xhr.setRequestHeader('Content-type', 'multipart/form-data');
+        //Appending file information in Http headers
+        xhr.setRequestHeader('X-File-Name', fileInput.files[0].name);
+        xhr.setRequestHeader('X-File-Type', fileInput.files[0].type);
+        xhr.setRequestHeader('X-File-Size', fileInput.files[0].size);
+        //Sending file in XMLHttpRequest
+        xhr.send(fileInput.files[0]);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert(xhr.responseText);
+            }
+        }
+        return false;
+    }
+}
+{% endhighlight %}
+
+
+#### Controller
+
+[HttpPost]
+public JsonResult Upload()
+{
+    string fileName = Request.Headers["X-File-Name"];
+    string fileType = Request.Headers["X-File-Type"];
+    int fileSize = Convert.ToInt32(Request.Headers["X-File-Size"]);
+    //File's content is available in Request.InputStream property
+    System.IO.Stream fileContent = Request.InputStream;
+    //Creating a FileStream to save file's content
+    System.IO.FileStream fileStream = System.IO.File.Create(Server.MapPath("~/") + fileName);
+    fileContent.Seek(0, System.IO.SeekOrigin.Begin);
+    //Copying file's content to FileStream
+    fileContent.CopyTo(fileStream);
+    fileStream.Dispose();
+    return Json("File uploaded");
+}
+
+Thats it. We're done
