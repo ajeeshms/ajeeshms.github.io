@@ -160,6 +160,7 @@
     }
 /.post-list li {
     margin-bottom: 20px;
+    padding-bottom: 20px;
     background: url('/img/border.png') repeat-x scroll center bottom rgba(0, 0, 0, 0);
 }
 
