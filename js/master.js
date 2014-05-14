@@ -32,3 +32,12 @@ if (home_page.length > 0) {
 $('#contact-link').click(function () {
     location.href = 'mailto:mail@ajeeshms.in';
 });
+$('#menu').click(function () {
+    $(this).toggleClass('visible');
+});
+$('#menu').blur(function () {
+    var me = $(this);
+    setTimeout(function () {
+        me.toggleClass('visible');
+    }, 100);
+});
