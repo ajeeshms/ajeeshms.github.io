@@ -29,3 +29,6 @@ if (home_page.length > 0) {
         next.addClass('current');
     }, 5000);
 }
+$('#contact-link').click(function () {
+    location.href = 'mailto:mail@ajeeshms.in';
+});
