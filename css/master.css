@@ -137,6 +137,9 @@
     margin: 0 auto;
     background-color: #808080;
 }
+#article-meta {
+    margin-bottom: 30px;
+}
 #article-meta .column {
     color: #999;
     padding: 1rem 0;
