@@ -26,12 +26,12 @@
         opacity: 1;
     }
 #hero {
-    width: 280px;
+    width: 230px;
     height: 80px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -50px 0 0  -140px;
+    margin: -50px 0 0  -115px;
 }
     #hero #logo {
         color: #fff;
@@ -171,6 +171,18 @@
     }
     #page #menu > *:first-child {
         margin-top: 20px;
+    }
+    #home-page #header a {
+        display: block;
+    }
+    #home-page #header > *{
+        background-color: rgba(255, 255, 255, 0.4);
+        border: 1px solid #fff;
+        padding: 10px;
+        margin: 0;
+    }
+    #home-page #header >:first-child {
+        border-bottom: none;
     }
 }
     
