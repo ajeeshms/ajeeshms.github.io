@@ -155,6 +155,9 @@
         color: #aaa;
         text-shadow: 0 1px 0 #FFFFFF;
     }
+    .post-list .excerpt > * {
+        display: inline;
+    }
 /.post-list li {
     margin-bottom: 20px;
 }
