@@ -4,14 +4,14 @@
         var background_urls = ['/img/bg/bg1.jpg', '/img/bg/bg2.jpg', '/img/bg/bg3.jpg', '/img/bg/bg4.jpg', '/img/bg/bg5.jpg'];
         $.each(background_urls, function (i, url) {
             var img = $('<img src="' + url + '"/>');
-            img.ready(function () {
+            img[0].onload = function () {
                 var panel = $('<div class="bg-panel"></div>');
                 if (i == 0) {
                     panel.addClass('current');
                 }
                 panel.css('background-image', 'url("' + url + '")');
                 home_page.append(panel);
-            });
+            }
         });
     }
 });

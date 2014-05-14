@@ -34,6 +34,18 @@
         padding: 0 0 5px 75px;
         background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABFCAMAAADAZGAYAAAAV1BMVEUAAAD+/v7////////////+/v7+/v7////////////////////+/v7////////////+/v7+/v7////+/v7////////////////+/v7////////////+/v4/0tcJAAAAG3RSTlMA6IEXH92WAQcPKEX5xng6rtSLu01XMG3woV/VdFtMAAADnElEQVRYw7VY17ajMAy0AVd6h6D//869wQTJplxydncecoJxJtKoGdglVNJFVT3BsiyQibZ5Wc2+hS4bDosPgLkz35DEBV8uMA9PSZIGlmtAXqoHJCaC5R7Q2t9IVMeX3wGRvjdFwvIIwt6pIpangP6SpcyW54DiQukUlm8AUv0VC/KceQTL14jUQd1s+R7wCmuoPt3G81k2ssonuOAp/ayTxx2T7Iz63I/76pSJm1t5oU11aPBLnJUq3cHD8juv407cuhX5t7JeobvKs2g8uCb2DbF/L4+3Akujqua8rqIUFbCHWOzRajwr51UUnVJNodql0nNoznbHeMasKa7SUAUQqdrcDBvSVqSjp7x6E59Gt002nsJfz92qoEtvC4fpItnSjafxl+0qGpAYxbfVBeOmT+6X1nutCFQfkOWSJ54OMa+JSwp33De9Duhi7MUJhh+/q2sOFMJto06UvuRdOCmX8zSx9Ib0wt39iCdom4jK2CRhbRfOLdoTanqZac+YqVdJ2peGsWT2lDBoDv6y3S8qxshVHfcC1jqwqCjG121FZvRipHqLuMIoKy8LJqdOT2gShvEtid5gaSga5TW29NAXBgaEkr32H7pvAPBp3c2h4+WUGGgSFTslXzupjPpq1dAwg6ODO5rinMZgG+R2/YSf1W7dXXgtMnYNnNJwdAr/IE+JoLnLDAvX4gwYKRhQ/bwkFdK9PzVT6JUrUE1lxfD3WN2cVFqZvL9blyg0cxQnekgMK2N6p59RebvRzGTnippk8Yh5q3Cr3Ge6dFkQUxoZRLymFQ4Jdj4oB+6mp9bCxZg6FdBIl/9oq/rszQY95qLqlZJuI5W4CGhe6KFLMgwrjGvpJNXH0AHCkSJ2+fxkLLxxk8mxaGEXIyIl5AI+0V5sweuQCpWkHY8WA2h/TEY4p3BMqcPZmCf+hM63A5rfnsdg9Krg2FDj8PIU7nxWczjt2hbIytuFmIfDAe3rTo430KxHASs5vJGPZq1CQa1TXqCEOj3ftJ/jjbWJdl8HfnKgiQEvsQEhspf2D32F9zfQub9/oW0XZz/RI5EZeTg4Z4OTAcrbk2g1pjax6YhiE0w/BiWYmIhmOQFhOBrkfsF1eEr/Dhm41vjvnhn+/gnmvz1PPefBfP8fz5qIpH7O0rNraPnQsTphd1Apf+SQZr9AR7+SVPbRa5f7NybtoNgzmFFcMGXSsi+ghujABNPcafY1TOq92+qTG2f+ABLgSF0mTsqkAAAAAElFTkSuQmCC');
     }
+#blog-link {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #fff;
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 40px 0 0 -20px;
+}
 #logo {
     background-repeat: no-repeat;
     background-position: left center;
@@ -87,6 +99,7 @@
 #article-meta .column {
     padding: 10px 0;
     border-bottom: 1px solid #58585A;
+    text-transform: capitalize;
 }
 #article-content {
 }
@@ -98,6 +111,9 @@
     .post-list time {
         color: #aaa;
     }
+/.post-list li {
+    margin-bottom: 20px;
+}
     
 /*---Foundation Overrides---*/
 .row {
