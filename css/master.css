@@ -108,19 +108,12 @@
     background-color: #808080;
 }
 #article-meta .column {
-    padding: 10px 0;
+    padding: 1rem 0;
     /*border-bottom: 1px solid #58585A;*/
     text-transform: uppercase;
     text-shadow: 1px 1px 1px #fff;
     background: url('/img/border.png') repeat-x scroll center bottom rgba(0, 0, 0, 0);
 }
-    #article-meta .column:before {
-        background: url('/img/border.png') repeat-x scroll center top rgba(0, 0, 0, 0);
-        content: "";
-        float: left;
-        height: 10px;
-        width: 100%;
-    }
 #article-content {
 }
 
