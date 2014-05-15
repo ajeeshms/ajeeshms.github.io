@@ -38,6 +38,6 @@ $('#menu').click(function () {
 $('#menu').blur(function () {
     var me = $(this);
     setTimeout(function () {
-        me.toggleClass('visible');
+        me.removeClass('visible');
     }, 100);
 });
