@@ -13,7 +13,7 @@
             <a id="author-img"></a>
             <span id="author-name" class="medium-12 column text-center">BY AJEESH M S</span>
             <span class="medium-12 column text-center"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
-            {% if site.disqus_shortname and page.comments %}<span class="medium-12 column text-center"><i class="fa fa-comment"></i> <a href="#disqus_thread" ata-disqus-identifier="{{page.identifier}}">COMMENTS</a></span>{% endif %}
+            {% if site.disqus_shortname and page.comments %}<span class="medium-12 column text-center"><i class="fa fa-comment"></i> <a href="#disqus_thread" data-disqus-identifier="{{page.identifier}}">COMMENTS</a></span>{% endif %}
         </div>
         <div id="article-content" class="medium-10 column">
             <h1>{{ page.title }}</h1>
