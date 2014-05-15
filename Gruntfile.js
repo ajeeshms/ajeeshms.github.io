@@ -8,9 +8,8 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        'assets/js/*.js',
-        'assets/js/plugins/*.js',
-        '!assets/js/scripts.min.js'
+        'js/*.js',
+        'js/plugins/*.js'
       ]
     },
     recess: {
@@ -20,8 +19,8 @@ module.exports = function(grunt) {
           compress: true
         },
         files: {
-          'assets/css/main.min.css': [
-            'assets/less/main.less'
+          'css/master.min.css': [
+            'css/less/main.less'
           ]
         }
       }
@@ -29,9 +28,9 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'assets/js/scripts.min.js': [
-            'assets/js/plugins/*.js',
-            'assets/js/_*.js'
+          'js/master.min.js': [
+            'js/plugins/*.js',
+            'js/_*.js'
           ]
         }
       }
@@ -44,9 +43,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'img/',
           src: '{,*/}*.{png,jpg,jpeg}',
-          dest: 'images/'
+          dest: 'img/'
         }]
       }
     },
@@ -54,16 +53,16 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'img/',
           src: '{,*/}*.svg',
-          dest: 'images/'
+          dest: 'img/'
         }]
       }
     },
     watch: {
       less: {
         files: [
-          'assets/less/*.less'
+          'css/less/*.less'
         ],
         tasks: ['recess']
       },
@@ -76,8 +75,8 @@ module.exports = function(grunt) {
     },
     clean: {
       dist: [
-        'assets/css/main.min.css',
-        'assets/js/scripts.min.js'
+        'css/master.min.css',
+        'js/master.min.js'
       ]
     }
   });
